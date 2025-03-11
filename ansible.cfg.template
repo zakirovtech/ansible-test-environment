@@ -1,0 +1,5 @@
+[defaults]
+
+inventory = "change path"
+vault_password_file = "change path"
+host_key_checking = "boolean"

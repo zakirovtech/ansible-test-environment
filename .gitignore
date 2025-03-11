@@ -1,0 +1,6 @@
+ansible.cfg
+**/ansible.cfg
+
+vault/*
+**/password.txt
+**/vault.yaml

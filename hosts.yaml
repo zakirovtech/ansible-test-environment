@@ -1,0 +1,12 @@
+admin:
+  hosts:
+    selectos:
+
+firewall:
+  hosts:
+    centos:
+
+security:
+  children:
+    admin:
+    firewall:

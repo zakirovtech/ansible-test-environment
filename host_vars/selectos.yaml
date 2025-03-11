@@ -1,0 +1,5 @@
+host_name: SelectOS
+ansible_host: "{{ selectos_address }}"
+ansible_user: "{{ selectos_user }}"
+ansible_password: "{{ selectos_user_password }}"
+ansible_become_pass: "{{ selectos_user_password }}"

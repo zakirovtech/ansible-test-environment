@@ -1,0 +1,5 @@
+host_name: CentOS
+ansible_host: "{{ centos_address }}"
+ansible_user: "{{ centos_user }}"
+ansible_password: "{{ centos_user_password }}"
+ansible_become_pass: "{{ centos_user_password }}"
