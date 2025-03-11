@@ -24,12 +24,15 @@ The setup consists of the following components:
 
 ## How to Use
 
-1. **Clone the Repository**:
+1. **Clone the Repository and add variables**:
 
    ```bash
    git clone https://github.com/your-username/Ansible-test-environment.git
-   cd Ansible-test-environment
+   cd ansible-test-environment
    cp ansible.cfg.template ansible.cfg
+   mkdir vault
+   touch vault/vault.yaml
+   touch password.txt
    ```
 
-   Then edit the variables as you need.
+   Then edit the variables (check hosts) as you need and set the vault password.
