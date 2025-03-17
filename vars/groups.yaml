@@ -1,0 +1,11 @@
+groups_list:
+  - developers
+  - qa
+  - analytics
+
+manage_groups:
+  - {user: jane_doe, groups: [developers]}
+  - {user: john_doe, groups: [developers]}
+  - {user: bob_maddison, groups: [analytics, developers]}
+  - {user: jeremiyah_saint, groups: [qa]}
+  - {user: anna_joepeach, groups: [qa]}

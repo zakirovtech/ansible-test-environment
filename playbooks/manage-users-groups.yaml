@@ -1,0 +1,46 @@
+- name: Group managing playbook
+  hosts: admin
+  become: true
+  
+  vars_files:
+    - ../vault/vault.yaml
+    - ../vars/users.yaml
+    - ../vars/groups.yaml
+
+  pre_tasks:
+    - name: Check servers availability
+      ansible.builtin.ping:
+  
+  tasks:
+    - block:
+      - name: Manage user groups
+        ansible.builtin.user:
+          name: "{{ item.user }}"
+          groups: "{{ item.groups }}"
+          append: true
+        register: task_state
+        loop: "{{ manage_groups }}"
+
+      rescue:
+        - name: Handle the error
+          debug:
+            var: task_state
+        
+        - name: Create a group
+          group:
+            name: "{{ item }}"
+          when: "task_state.failed is true"
+          loop: "{{ groups_list }}"
+        
+        - name: Retry to manage groups
+          ansible.builtin.user:
+            name: "{{ item.user }}"
+            groups: "{{ item.groups }}"
+            append: true
+          register: task_state
+          loop: "{{ manage_groups }}"
+
+      always:
+        - name: Check status
+          debug:
+            msg: "{{ task_state }}"

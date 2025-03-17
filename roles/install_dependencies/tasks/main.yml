@@ -1,0 +1,6 @@
+---
+# tasks file for roles/install_dependencies
+- import_tasks: "{{ role_path }}/tasks/debug.yaml"  
+- import_tasks: "{{ role_path }}/tasks/setup.yaml"
+- import_tasks: "{{ role_path }}/tasks/install.yaml"
+- import_tasks: "{{ role_path }}/tasks/clean.yaml"

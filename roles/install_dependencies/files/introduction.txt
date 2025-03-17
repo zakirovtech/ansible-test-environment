@@ -1,0 +1,8 @@
+This file is required  to read!
+
+The initial setup fof the system has done.
+
+Changes habe been accepted:
+
+- Update repo cache
+- Install common packages

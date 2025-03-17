@@ -1,0 +1,25 @@
+- name: Create organization office users
+  hosts: all
+  become: true
+
+  vars_files:
+    - ../vault/vault.yaml
+    - ../vars/users.yaml
+
+  pre_tasks:
+    - name: Check servers availability
+      ansible.builtin.ping:
+  
+  tasks:
+    - name: Create regular office group
+      ansible.builtin.group:
+        name: "{{ common_group }}"
+        state: present
+
+    - name: Create user
+      ansible.builtin.user:
+        name: "{{ item }}"
+        groups: "{{ common_group }}"
+      loop: "{{ users_list }}"
+        
+    

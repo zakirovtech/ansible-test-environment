@@ -1,0 +1,11 @@
+---
+# vars file for roles/install_dependencies
+
+packages:
+  - nano
+  - vim
+  - htop
+  - curl
+  - wget
+  - tree
+  - jq

@@ -1,0 +1,10 @@
+- name: Install common packages to all clients
+  hosts: all
+  gather_facts: true
+  become: true
+
+  vars_files:
+    - ../vault/vault.yaml
+
+  roles:
+    - ../roles/install_dependencies

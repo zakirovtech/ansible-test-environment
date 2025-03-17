@@ -4,3 +4,6 @@ ansible.cfg
 vault/*
 **/password.txt
 **/vault.yaml
+
+**/log/
+*.log

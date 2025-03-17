@@ -1,0 +1,14 @@
+- name: Install common packages
+  package:
+    name: "{{ packages }}"
+    state: present
+
+- name: Copy necessary files
+  copy:
+    src: "{{ item }}"
+    dest: ./{{ item }}
+    mode: 0744
+  loop:
+    - manifest
+    - introduction.txt
+

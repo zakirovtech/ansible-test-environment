@@ -1,0 +1,24 @@
+- name: Update repository URLs in a file
+  shell: |
+    sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+  when: 
+    - ansible_facts['distribution'] == 'CentOS'
+    - ansible_facts['distribution_version'] is version('9', '<')
+
+- name: Install EPEL repository on CentOS
+  ansible.builtin.yum:
+    name: epel-release
+    state: present
+  when: ansible_facts['os_family'] == "RedHat"
+
+
+- name: Update apt local repository data
+  apt:
+    update_cache: yes
+  when: ansible_facts['os_family'] == "Debian"
+
+- name: Update yum local repository data
+  yum:
+    update_cache: yes
+  when: ansible_facts['os_family'] == "RedHat"
